@@ -1,7 +1,6 @@
 # Glowrithm
 
-Skincare ingredient recommendations from facial skin-type classification (Capstone Design,
-S1 Teknik Telekomunikasi, Telkom University). A photo of the user's face is classified as
+Skincare ingredient recommendations from facial skin-type classification (Capstone Design). A photo of the user's face is classified as
 **dry, normal or oily** by an ensemble CNN (ResNet50V2 + EfficientNetB0, feature concatenation),
 explained with a **Grad-CAM** heat map, and mapped to a cleanse / treat / protect routine of
 active ingredients filtered by their **BPOM** regulatory status.
