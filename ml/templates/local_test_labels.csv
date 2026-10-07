@@ -1,0 +1,5 @@
+participant_id,photo_file,lighting,lux,blot_forehead,blot_nose,blot_left_cheek,blot_right_cheek,tight,flaky,reference_label,notes
+P001,P001_alami.jpg,alami,850,2,2,1,1,0,0,,CONTOH - hapus baris contoh sebelum dipakai
+P001,P001_lampu.jpg,lampu,320,2,2,1,1,0,0,,
+P001,P001_redup.jpg,redup,60,2,2,1,1,0,0,,
+P002,P002_alami.jpg,alami,900,0,0,0,0,1,1,,

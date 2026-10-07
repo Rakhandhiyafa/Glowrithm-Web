@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glowrithm-ml"
+version = "1.0.0"
+description = "Glowrithm skin-type classifier: ResNet50V2 + EfficientNetB0 ensemble with Grad-CAM"
+requires-python = ">=3.10"
+# TensorFlow is intentionally not listed: install `tensorflow` (GPU/Colab/macOS)
+# or `tensorflow-cpu` (servers) yourself - see requirements.txt.
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python-headless>=4.8,<5",  # OpenCV 5 dropped the Haar-cascade face detector
+  "pillow>=10.0",
+  "pyyaml>=6.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["glowrithm_ml*"]

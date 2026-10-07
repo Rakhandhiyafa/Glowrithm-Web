@@ -1,0 +1,215 @@
+{
+  "version": "1.0.0",
+  "review_status": "DRAFT - every regulatory note and evidence entry must be checked against Peraturan BPOM No. 23 Tahun 2019 (and its annexes) and the cited literature, and preferably reviewed by a pharmacist or dermatologist, before release. Set 'verified' to true only after that check.",
+  "disclaimer": "Glowrithm supports your choice of skincare ingredients. It does not diagnose skin diseases and is not a substitute for advice from a dermatologist.",
+  "skin_types": {
+    "dry": {
+      "label_en": "Dry",
+      "label_id": "Kering",
+      "description": "Low moisture: skin can look dull or rough, feel tight and show fine, flaky lines.",
+      "care_focus": "Restore hydration and support the skin barrier."
+    },
+    "normal": {
+      "label_en": "Normal",
+      "label_id": "Normal",
+      "description": "Balanced moisture and oil, even texture and small, barely visible pores.",
+      "care_focus": "Keep the balance and protect against UV and pollution."
+    },
+    "oily": {
+      "label_en": "Oily",
+      "label_id": "Berminyak",
+      "description": "High sebum output: visible shine, especially on the T-zone, with enlarged pores.",
+      "care_focus": "Control excess sebum and keep pores clear without stripping the barrier."
+    }
+  },
+  "steps": {
+    "cleanse": {"order": 1, "title": "Cleanse", "goal": "Remove dirt and excess oil without damaging the barrier."},
+    "treat": {"order": 2, "title": "Treat", "goal": "Target the main need of your skin type."},
+    "protect": {"order": 3, "title": "Protect", "goal": "Seal in moisture and defend against UV damage."}
+  },
+  "routines": {
+    "oily": {
+      "headline": "Recommended for oily skin",
+      "summary": "These ingredients help regulate sebum and keep pores clear while respecting your skin barrier.",
+      "steps": {"cleanse": ["salicylic_acid"], "treat": ["niacinamide"], "protect": ["zinc_pca", "sunscreen"]},
+      "avoid": [
+        {"name": "Heavy occlusives (thick butters, petrolatum-rich creams)", "reason": "Feel greasy and can worsen clogged pores on oily skin."},
+        {"name": "Harsh, high-alcohol toners", "reason": "Over-stripping irritates the skin and can trigger rebound oiliness."}
+      ]
+    },
+    "dry": {
+      "headline": "Recommended for dry skin",
+      "summary": "These ingredients draw water into the skin and rebuild the lipid barrier that keeps it there.",
+      "steps": {"cleanse": ["glycerin"], "treat": ["hyaluronic_acid"], "protect": ["ceramide", "shea_butter", "sunscreen"]},
+      "avoid": [
+        {"name": "Strong foaming surfactants (e.g. sodium lauryl sulfate)", "reason": "Strip barrier lipids and increase dryness and tightness."},
+        {"name": "Fragrance and high denatured-alcohol content", "reason": "Common irritants for a weakened skin barrier."}
+      ]
+    },
+    "normal": {
+      "headline": "Recommended for normal skin",
+      "summary": "These ingredients maintain your skin's balance and protect it from free radicals and UV light.",
+      "steps": {"cleanse": ["glycerin"], "treat": ["niacinamide", "vitamin_c"], "protect": ["sunscreen"]},
+      "avoid": [
+        {"name": "Over-exfoliation (daily strong acids or scrubs)", "reason": "Can disrupt a balanced barrier and cause sensitivity."}
+      ]
+    }
+  },
+  "ingredients": {
+    "salicylic_acid": {
+      "name": "Salicylic Acid",
+      "alias": "BHA",
+      "inci": "Salicylic Acid",
+      "function": "Oil-soluble exfoliant that clears clogged pores",
+      "benefits": ["Penetrates sebum to unclog pores", "Helps reduce comedones and shine"],
+      "how_to_use": "Use as a wash-off cleanser once a day; start every other day if your skin is sensitive.",
+      "suitability": {"dry": 0.25, "normal": 0.55, "oily": 0.97},
+      "regulatory": {
+        "status": "restricted",
+        "note": "Restricted cosmetic ingredient: a maximum concentration applies (commonly 2% in leave-on face products under the ASEAN Cosmetic Directive annexes adopted by BPOM) and it is not for children under 3.",
+        "reference": "Peraturan BPOM No. 23 Tahun 2019 - annex of restricted ingredients",
+        "verified": false
+      },
+      "caution": "Can dry or irritate the skin; do not combine with other strong exfoliants.",
+      "evidence": ["CD-3 reference [14]: salicylic acid gel and sebum/acne outcomes"]
+    },
+    "niacinamide": {
+      "name": "Niacinamide",
+      "alias": "Vitamin B3",
+      "inci": "Niacinamide",
+      "function": "Balances sebum and strengthens the skin barrier",
+      "benefits": ["Helps regulate sebum production", "Supports barrier function and evens skin tone"],
+      "how_to_use": "Apply a serum or moisturiser once or twice a day; 2-5% is generally well tolerated.",
+      "suitability": {"dry": 0.70, "normal": 0.90, "oily": 0.95},
+      "regulatory": {"status": "permitted", "note": "Permitted cosmetic ingredient with no specific concentration limit.", "reference": "Peraturan BPOM No. 23 Tahun 2019", "verified": false},
+      "caution": "Rarely causes flushing at high concentrations.",
+      "evidence": ["CD-3 reference [13]: niacinamide serum randomised controlled trial"]
+    },
+    "zinc_pca": {
+      "name": "Zinc PCA",
+      "alias": "Zinc salt",
+      "inci": "Zinc PCA",
+      "function": "Soothes blemish-prone skin and helps reduce shine",
+      "benefits": ["Anti-inflammatory, calming effect", "Helps limit excess sebum"],
+      "how_to_use": "Look for it in a lightweight moisturiser or toner used daily.",
+      "suitability": {"dry": 0.35, "normal": 0.55, "oily": 0.88},
+      "regulatory": {
+        "status": "restricted",
+        "note": "Water-soluble zinc salts are restricted to a maximum zinc content (commonly 1% calculated as zinc) under the ASEAN Cosmetic Directive annexes.",
+        "reference": "Peraturan BPOM No. 23 Tahun 2019 - annex of restricted ingredients",
+        "verified": false
+      },
+      "caution": null,
+      "evidence": ["Citation needed: add a clinical reference for zinc PCA before release"]
+    },
+    "sunscreen": {
+      "name": "Broad-spectrum sunscreen",
+      "alias": "SPF 30+ / PA+++",
+      "inci": "UV filters (e.g. zinc oxide, titanium dioxide)",
+      "function": "Protects against UVA and UVB damage",
+      "benefits": ["Prevents sunburn and photoaging", "Reduces dark marks after breakouts"],
+      "how_to_use": "Apply generously every morning as the last step; reapply every 2-3 hours outdoors. Oily skin: choose a gel or fluid texture.",
+      "suitability": {"dry": 0.92, "normal": 0.97, "oily": 0.93},
+      "regulatory": {
+        "status": "restricted",
+        "note": "Only UV filters on BPOM's permitted list may be used, each up to its maximum concentration.",
+        "reference": "Peraturan BPOM No. 23 Tahun 2019 - annex of permitted UV filters",
+        "verified": false
+      },
+      "caution": null,
+      "evidence": ["General dermatology guidance: add a sunscreen reference before release"]
+    },
+    "hyaluronic_acid": {
+      "name": "Hyaluronic Acid",
+      "alias": "Sodium hyaluronate",
+      "inci": "Sodium Hyaluronate",
+      "function": "Humectant that draws water into the skin",
+      "benefits": ["Immediate hydration and plumper skin", "Lightweight, suits every skin type"],
+      "how_to_use": "Apply to slightly damp skin, then seal with a moisturiser.",
+      "suitability": {"dry": 0.95, "normal": 0.80, "oily": 0.70},
+      "regulatory": {"status": "permitted", "note": "Permitted cosmetic ingredient with no specific concentration limit.", "reference": "Peraturan BPOM No. 23 Tahun 2019", "verified": false},
+      "caution": null,
+      "evidence": ["CD-3 reference [11]: Moisturizers, StatPearls (2024)"]
+    },
+    "ceramide": {
+      "name": "Ceramides",
+      "alias": "Barrier lipids",
+      "inci": "Ceramide NP / AP / EOP",
+      "function": "Repairs and reinforces the skin barrier",
+      "benefits": ["Reduces water loss through the skin", "Calms tightness and flaking"],
+      "how_to_use": "Use a ceramide moisturiser morning and night.",
+      "suitability": {"dry": 0.97, "normal": 0.75, "oily": 0.55},
+      "regulatory": {"status": "permitted", "note": "Permitted cosmetic ingredient with no specific concentration limit.", "reference": "Peraturan BPOM No. 23 Tahun 2019", "verified": false},
+      "caution": null,
+      "evidence": ["CD-3 references [11] and [12]: moisturizers and pseudo-ceramide efficacy"]
+    },
+    "glycerin": {
+      "name": "Glycerin",
+      "alias": "Glycerol",
+      "inci": "Glycerin",
+      "function": "Gentle humectant found in non-stripping cleansers",
+      "benefits": ["Keeps skin hydrated while cleansing", "Very low irritation potential"],
+      "how_to_use": "Choose a mild, low-foam cleanser that lists glycerin near the top of its ingredients.",
+      "suitability": {"dry": 0.90, "normal": 0.85, "oily": 0.65},
+      "regulatory": {"status": "permitted", "note": "Permitted cosmetic ingredient with no specific concentration limit.", "reference": "Peraturan BPOM No. 23 Tahun 2019", "verified": false},
+      "caution": null,
+      "evidence": ["CD-3 reference [11]: Moisturizers, StatPearls (2024)"]
+    },
+    "shea_butter": {
+      "name": "Shea Butter",
+      "alias": "Butyrospermum parkii",
+      "inci": "Butyrospermum Parkii Butter",
+      "function": "Emollient that softens skin and seals in moisture",
+      "benefits": ["Smooths rough, flaky patches", "Forms a protective film against water loss"],
+      "how_to_use": "Use a cream containing shea butter at night or on very dry areas.",
+      "suitability": {"dry": 0.92, "normal": 0.55, "oily": 0.20},
+      "regulatory": {"status": "permitted", "note": "Permitted cosmetic ingredient with no specific concentration limit.", "reference": "Peraturan BPOM No. 23 Tahun 2019", "verified": false},
+      "caution": "Can feel heavy on oily or acne-prone skin.",
+      "evidence": ["CD-3 reference [11]: Moisturizers, StatPearls (2024)"]
+    },
+    "vitamin_c": {
+      "name": "Vitamin C",
+      "alias": "Ascorbic acid and derivatives",
+      "inci": "Ascorbic Acid / Sodium Ascorbyl Phosphate",
+      "function": "Antioxidant that defends against free radicals and brightens",
+      "benefits": ["Neutralises free radicals from UV and pollution", "Helps fade dullness and uneven tone"],
+      "how_to_use": "Apply a serum in the morning under sunscreen.",
+      "suitability": {"dry": 0.70, "normal": 0.90, "oily": 0.75},
+      "regulatory": {"status": "permitted", "note": "Permitted cosmetic ingredient with no specific concentration limit.", "reference": "Peraturan BPOM No. 23 Tahun 2019", "verified": false},
+      "caution": "Pure L-ascorbic acid can sting; derivatives such as sodium ascorbyl phosphate are gentler.",
+      "evidence": ["Add a reference before release (e.g. a review of vitamin C in dermatology)"]
+    }
+  },
+  "prohibited": [
+    {"name": "Mercury (merkuri)", "reason": "Prohibited in cosmetics by BPOM; damages the kidneys and nervous system."},
+    {"name": "Hydroquinone (hidrokinon)", "reason": "Not allowed in skincare cosmetics; a prescription medicine that often appears in illegal whitening creams."},
+    {"name": "Retinoic acid / tretinoin (asam retinoat)", "reason": "Prescription medicine, prohibited in cosmetics."},
+    {"name": "Rhodamine B (Merah K10) and Merah K3 dyes", "reason": "Prohibited colourants in cosmetics."}
+  ],
+  "personalization_rules": [
+    {"id": "minor_bha", "when": {"age_lt": 18}, "ingredient": "salicylic_acid", "adjust": -0.10,
+     "note": "Under 18: prefer a gentle wash-off salicylic acid cleanser and ask a pharmacist or dermatologist before using leave-on exfoliants.",
+     "rationale": "Conservative safety rule for adolescent skin (team heuristic - validate with an expert)."},
+    {"id": "adult_antioxidant", "when": {"age_gte": 25}, "ingredient": "vitamin_c", "adjust": 0.05,
+     "note": "Age 25+: antioxidant support plus daily sunscreen helps limit photoaging.",
+     "rationale": "Photoaging prevention (team heuristic - add a reference)."},
+    {"id": "mature_barrier", "when": {"age_gte": 40}, "ingredient": "ceramide", "adjust": 0.06,
+     "note": "Age 40+: skin barrier lipids and hydration tend to decline, so ceramides are prioritised.",
+     "rationale": "Age-related decline of stratum corneum hydration and sebum (e.g. Luebberding et al., Int. J. Cosmet. Sci., 2013)."},
+    {"id": "mature_hydration", "when": {"age_gte": 40}, "ingredient": "hyaluronic_acid", "adjust": 0.04,
+     "note": null, "rationale": "Same as mature_barrier."},
+    {"id": "male_sebum", "when": {"sex": "male"}, "ingredient": "niacinamide", "adjust": 0.03,
+     "note": "On average men produce more sebum, so oil-balancing niacinamide is slightly prioritised.",
+     "rationale": "Sex differences in sebum content (e.g. Luebberding et al., Int. J. Cosmet. Sci., 2013)."},
+    {"id": "female_50_hydration", "when": {"sex": "female", "age_gte": 50}, "ingredient": "hyaluronic_acid", "adjust": 0.03,
+     "note": "After menopause skin lipids and hydration drop more noticeably, so extra hydration is prioritised.",
+     "rationale": "Sex- and age-related decline of skin surface lipids (e.g. Luebberding et al., 2013)."}
+  ],
+  "general_notes": [
+    "Patch-test each new product on a small area for 24-48 hours.",
+    "Introduce one new active ingredient at a time.",
+    "Wear sunscreen every morning, whatever your skin type.",
+    "Choose products with a BPOM registration number (check at cekbpom.pom.go.id).",
+    "If irritation persists, stop the product and consult a dermatologist or pharmacist."
+  ]
+}

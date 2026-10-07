@@ -1,0 +1,9 @@
+{
+  "name": "glowrithm-web-e2e",
+  "private": true,
+  "type": "module",
+  "description": "End-to-end test of the Glowrithm web test build",
+  "scripts": { "e2e": "node e2e_webapp.mjs http://localhost:8000 out fixtures/face.y4m fixtures/face_sharp.jpg fixtures/dark.jpg" },
+  "dependencies": { "puppeteer-core": "25.12.0" },
+  "optionalDependencies": { "@sparticuz/chromium": "153.0.0" }
+}

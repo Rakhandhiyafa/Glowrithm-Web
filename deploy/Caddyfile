@@ -1,0 +1,9 @@
+# Replace api.example.id with your domain; its DNS A record must point to this VPS.
+# Caddy obtains and renews the Let's Encrypt TLS certificate automatically (HTTPS, CD-2).
+api.example.id {
+    encode gzip
+    request_body {
+        max_size 10MB
+    }
+    reverse_proxy api:8000
+}

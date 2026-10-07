@@ -1,0 +1,27 @@
+# On the VPS, from the repository root:
+#   cp backend/.env.example backend/.env   (set GLOWRITHM_API_KEY)
+#   docker compose -f deploy/docker-compose.yml up -d --build
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    env_file: ../backend/.env
+    restart: unless-stopped
+    expose:
+      - "8000"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+volumes:
+  caddy_data:
+  caddy_config:

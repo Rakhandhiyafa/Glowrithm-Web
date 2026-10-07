@@ -1,0 +1,59 @@
+# Glowrithm training configuration. Paths are relative to this file.
+project:
+  seed: 42
+  class_names: [dry, normal, oily]   # fixed order = order of the model outputs
+
+paths:
+  raw_dir: data/raw                  # downloaded dataset; class folders may be nested (e.g. train/oily/*.jpg)
+  processed_dir: data/processed      # square face crops written by prepare_dataset.py
+  manifest: data/processed/manifest.csv
+  artifacts_dir: artifacts           # one sub-folder per architecture (ensemble / resnet / effnet)
+
+data:
+  processed_size: 384      # side (px) of the saved square crops
+  img_size: 224            # model input resolution
+  crop_faces: true         # Haar-cascade face detection + square crop (fallback: centre crop)
+  face_margin: 0.30        # crop side = (1 + margin) x detected face-box side
+  split: {train: 0.70, val: 0.15, test: 0.15}
+  keep_existing_split: false   # true -> keep the dataset's own train/valid/test folders
+  dedupe: true                 # remove exact duplicates, keep near-duplicates in one split
+  near_duplicate_bits: 10      # 256-bit dHash distance (mirror-aware) that counts as the same photo
+  max_group_size: 50           # near-duplicate links never build a bigger group (guards against chaining)
+  group_by_source_name: true   # Roboflow copies <name>_jpg.rf.<hash>.jpg of one photo stay together
+
+augmentation:              # applied to the training set only
+  horizontal_flip: true
+  rotation: 0.05           # fraction of a full turn (about +/-18 degrees)
+  zoom: 0.10
+  translation: 0.05
+  brightness: 0.15
+  contrast: 0.15
+
+training:
+  arch: ensemble           # ensemble | resnet | effnet  (resnet/effnet = single-backbone baselines)
+  resnet_variant: ResNet50V2
+  effnet_variant: EfficientNetB0
+  weights: imagenet        # imagenet | none (none = random init, pipeline tests only)
+  effnet_weights_file: null  # optional local EfficientNet weights (scripts/fetch_offline_weights.py) when the
+                             # Keras download is blocked; null = standard Keras ImageNet download
+  batch_size: 32
+  balance_strategy: oversample   # oversample | class_weight | none
+  dropout_1: 0.40
+  dense_units: 256
+  dropout_2: 0.30
+  l2: 1.0e-4
+  label_smoothing: 0.05
+  head:
+    epochs: 15
+    learning_rate: 1.0e-3
+  finetune:
+    epochs: 30
+    learning_rate: 1.0e-5
+    unfreeze_fraction: 0.30   # top 30% of each backbone's layers (BatchNorm stays frozen)
+  early_stopping_patience: 6
+  reduce_lr_patience: 3
+  reduce_lr_factor: 0.3
+
+evaluation:
+  target_accuracy: 0.90          # CD-3 decision-matrix target (rating 3)
+  low_confidence_threshold: 0.60 # below this the app asks the user to retake the photo

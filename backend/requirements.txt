@@ -1,0 +1,11 @@
+# Install TensorFlow separately: `pip install tensorflow-cpu` (Linux/Windows servers) or `pip install tensorflow` (macOS).
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+numpy>=1.26
+opencv-python-headless>=4.8,<5  # OpenCV 5 dropped the Haar-cascade face detector
+pillow>=10.0
+pyyaml>=6.0
+# tests
+pytest>=8.0
+httpx>=0.27
